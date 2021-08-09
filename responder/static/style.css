@@ -1,0 +1,44 @@
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+body {
+	background-color: #369;
+}
+
+.container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+}
+
+.box {
+	border-radius: 30px;
+	background-color: #d7d7d7;
+	text-align: center;
+
+	padding: 40px;
+}
+
+@font-face {
+	font-family: 'Iosevka Fixed Slab Web';
+	font-display: swap;
+	font-weight: 400;
+	font-stretch: expanded;
+	font-style: normal;
+	src: url('iosevka-fixed-slab-extended.woff2') format('woff2'), url('iosevka-fixed-slab-extended.ttf') format('truetype');
+}
+
+.box .pin {
+	font-family: 'Iosevka Fixed Slab Web';
+	font-feature-settings: "cv71" 1;
+	font-stretch: expanded;
+	font-size: 40pt;
+	word-spacing: -10pt;
+
+	margin: 0px;
+}
