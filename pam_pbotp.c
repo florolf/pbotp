@@ -265,7 +265,7 @@ EXPORT_SYMBOL int pam_sm_authenticate(pam_handle_t *pamh, int flags, int argc, c
 	_ = pam_get_user(ctx.pamh, &ctx.user, NULL);
 	if (_ != PAM_SUCCESS) {
 		pam_syslog(ctx.pamh, LOG_ERR, "could not get user name: %s", pam_strerror(ctx.pamh, _));
-		return -1;
+		return PAM_USER_UNKNOWN;
 	}
 
 	AUTOFREE_PTR(char, expected_response);
