@@ -40,6 +40,8 @@ else()
 	message("PkgConfig not found, cannot detect QR code support")
 endif()
 
+include(GNUInstallDirs)
+
 add_executable(genkey base64.c tweetnacl.c utils.c genkey.c)
 
 add_library(pam_pbotp SHARED pam_pbotp.c ${COMMON_FILES})
