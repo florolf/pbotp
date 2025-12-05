@@ -5,8 +5,7 @@ from flask import Flask, render_template
 import base64
 import struct
 
-from cryptography.hazmat.primitives.hmac import HMAC
-from cryptography.hazmat.primitives.hashes import SHA256
+from hashlib import blake2s
 from cryptography.hazmat.primitives.serialization import Encoding, PublicFormat
 from cryptography.hazmat.primitives.asymmetric.x25519 import X25519PrivateKey, X25519PublicKey
 
@@ -27,9 +26,9 @@ class Responder:
 
         dh_secret = self.privkey.exchange(peer_pub)
 
-        hmac = HMAC(dh_secret, SHA256())
-        hmac.update(payload)
-        sig = hmac.finalize()
+        prf = blake2s(key=dh_secret, digest_size=32)
+        prf.update(payload)
+        sig = prf.digest()
 
         code = struct.unpack('<Q', sig[0:8])[0]
         code = code % 1000000000

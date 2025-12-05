@@ -20,8 +20,7 @@ add_compile_options(
 set(COMMON_FILES
 	base64.c
 	challenge.c
-	hmac.c
-	sha256.c
+	blake2s.c
 	tweetnacl.c
 	utils.c
 )

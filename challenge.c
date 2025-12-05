@@ -6,7 +6,7 @@
 #include <sys/random.h>
 
 #include "tweetnacl.h"
-#include "hmac.h"
+#include "blake2s.h"
 #include "base64.h"
 #include "utils.h"
 
@@ -91,19 +91,20 @@ int make_challenge(const uint8_t pubkey[static 32],
 	uint8_t dh_shared[32];
 	crypto_scalarmult(dh_shared, secret, pubkey);
 
-	struct hmac_state hmac;
-	hmac_init(&hmac, dh_shared, sizeof(dh_shared));
+	blake2s_ctx blake2s;
+	blake2s_init(&blake2s, 32, dh_shared, sizeof(dh_shared));
 
 	while (*payload) {
 		const char *p = *payload;
 
-		hmac_process(&hmac, (const uint8_t*)p, strlen(p) + 1);
+		blake2s_update(&blake2s, p, strlen(p) + 1);
 
 		payload++;
 	}
 
-	hmac_finish(&hmac, response_out);
+	blake2s_final(&blake2s, response_out);
 
+	wipe_sized(blake2s);
 	wipe_sized(dh_shared);
 	wipe_sized(secret);
 

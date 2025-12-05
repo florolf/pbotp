@@ -24,17 +24,12 @@ target_include_directories(base64 PRIVATE ${PROJECT_SOURCE_DIR} ${CURRENT_SOURCE
 target_link_libraries(base64 PRIVATE ${CMOCKA_LIBRARIES})
 add_test(base64 base64)
 
-add_executable(sha256 sha256.c ../sha256.c)
-target_include_directories(sha256 PRIVATE ${PROJECT_SOURCE_DIR} ${CURRENT_SOURCE_DIR} ${CMOCKA_INCLUDES})
-target_link_libraries(sha256 PRIVATE ${CMOCKA_LIBRARIES})
-add_test(sha256 sha256)
+add_executable(blake2s blake2s.c ../blake2s.c)
+target_include_directories(blake2s PRIVATE ${PROJECT_SOURCE_DIR} ${CURRENT_SOURCE_DIR} ${CMOCKA_INCLUDES})
+target_link_libraries(blake2s PRIVATE ${CMOCKA_LIBRARIES})
+add_test(blake2s blake2s)
 
-add_executable(hmac hmac.c ../hmac.c ../sha256.c ../utils.c)
-target_include_directories(hmac PRIVATE ${PROJECT_SOURCE_DIR} ${CURRENT_SOURCE_DIR} ${CMOCKA_INCLUDES})
-target_link_libraries(hmac PRIVATE ${CMOCKA_LIBRARIES})
-add_test(hmac hmac)
-
-add_executable(challenge challenge.c ../challenge.c ../sha256.c ../hmac.c ../tweetnacl.c ../utils.c)
+add_executable(challenge challenge.c ../challenge.c ../blake2s.c ../tweetnacl.c ../utils.c)
 target_include_directories(challenge PRIVATE ${PROJECT_SOURCE_DIR} ${CURRENT_SOURCE_DIR} ${CMOCKA_INCLUDES})
 target_link_libraries(challenge PRIVATE ${CMOCKA_LIBRARIES})
 add_test(challenge challenge)
