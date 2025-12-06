@@ -94,6 +94,9 @@ int make_challenge(const uint8_t pubkey[static 32],
 	blake2s_ctx blake2s;
 	blake2s_init(&blake2s, 32, dh_shared, sizeof(dh_shared));
 
+	const char *version_string = "de.n621.pbotp.v2";
+	blake2s_update(&blake2s, version_string, strlen(version_string) + 1);
+
 	while (*payload) {
 		const char *p = *payload;
 

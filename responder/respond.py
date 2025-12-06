@@ -27,6 +27,7 @@ class Responder:
         dh_secret = self.privkey.exchange(peer_pub)
 
         prf = blake2s(key=dh_secret, digest_size=32)
+        prf.update(b'de.n621.pbotp.v2\x00')
         prf.update(payload)
         sig = prf.digest()
 
