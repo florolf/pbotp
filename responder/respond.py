@@ -43,13 +43,6 @@ app = Flask(__name__)
 # public  Zng28LIYphqbbwqEfvcT4nAshzazNE5lDuSvRJjrSgQ
 responder = Responder('zGRMAXRoSKwMZG5EM-_B-s8oxTfICcfBiN1PAHCCqVo')
 
-@app.route("/<node>/<user>/<challenge>")
-def get_standalone(node, user, challenge):
-    payload = ("%s/%s" % (node, user)).encode('ascii')
-    code = responder.get_response(payload, challenge)
-
-    return render_template('response.html', node=node, code=code)
-
 @app.route("/<group>/<node>/<user>/<challenge>")
 def get_grouped(group, node, user, challenge):
     payload = b''.join(map(lambda x: x.encode('ascii') + b'\x00', [group, node, user]))
