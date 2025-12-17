@@ -24,19 +24,8 @@ body {
 	padding: 40px;
 }
 
-@font-face {
-	font-family: 'Iosevka Fixed Slab Web';
-	font-display: swap;
-	font-weight: 400;
-	font-stretch: expanded;
-	font-style: normal;
-	src: url('iosevka-fixed-slab-extended.woff2') format('woff2'), url('iosevka-fixed-slab-extended.ttf') format('truetype');
-}
-
 .box .pin {
-	font-family: 'Iosevka Fixed Slab Web';
-	font-feature-settings: "cv71" 1;
-	font-stretch: expanded;
+	font-family: monospace;
 	font-size: 40pt;
 	word-spacing: -10pt;
 
