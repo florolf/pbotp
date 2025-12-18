@@ -112,14 +112,14 @@ The device host name is `SSSN7PBXFG6DY`, its group is `dev` and the login user i
 
 `nonce` is generated randomly:
 ``` none
-  0000  3e 2a 27 be c0 47 58 54  6b 5c d2 93 1b 80 9d 56  >*'..GXTk\.....V
-  0010  f3 82 e8 10 52 6c 3a e1  cc 61 f8 61 e5 86 93 5f  ....Rl:..a.a..._
+  0000  41 dc c4 6f 88 e9 eb a5  64 a2 3d 7d db 10 0d bd  A..o....d.=}....
+  0010  7d a7 ac 17 ce ca f9 a1  0d 4d b8 fd b6 84 b7 bf  }........M......
 ```
 
 `challenge` is:
 ``` none
-  0000  73 60 da a5 23 a5 68 14  fd 97 43 8c a1 83 e4 e0  s`..#.h...C.....
-  0010  f8 57 c1 de 7f 92 cc 5a  d7 4f 6a f9 ec 23 ed 5a  .W.....Z.Oj..#.Z
+  0000  d1 21 72 8e d9 fe f9 dc  f4 2b ca df 0a 60 de b0  .!r......+...`..
+  0010  71 34 f1 89 6f b7 99 1f  16 84 dd dd 6b a8 b6 23  q4..o.......k..#
 ```
 
 `dh_secret` is:
