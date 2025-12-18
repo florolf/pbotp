@@ -47,6 +47,6 @@ umask 077
 
 ## responder
 
-A small Python web application that responds to challenges. It's only meant to serve as a demo counterpart to the challenger implementation and as an alternate representation of the challenge-response algorithm using another programming language and libraries.
+A small Python web application that responds to challenges. It's only meant to serve as a demo counterpart to the challenger implementation and as an alternate representation of the challenge-response algorithm using another programming language and libraries. There is no authentication/authorization support and it only supports the `code` response mode.
 
-There is no authentication/authorization support and it only supports the `code` response mode.
+For a more "production grade" version that can be deployed as a Docker container, see the [pbotp-responder](https://github.com/florolf/pbotp-responder) repo.
