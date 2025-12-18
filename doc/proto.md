@@ -131,16 +131,16 @@ The device host name is `SSSN7PBXFG6DY`, its group is `dev` and the login user i
 This concludes the public-key phase. This key is now used to calculate the BLAKE2s hash of
 
 ``` none
-  0000  64 65 2e 6e 36 32 31 2e  70 62 6f 74 70 2e 76 32  |de.n621.pbotp.v2|
-  0010  00 64 65 76 00 53 53 53  4e 37 50 42 58 46 47 36  |.dev.SSSN7PBXFG6|
-  0020  44 59 00 72 6f 6f 74 00                           |DY.root.|
+  0000  64 65 2e 6e 36 32 31 2e  70 62 6f 74 70 2e 76 32  de.n621.pbotp.v2
+  0010  00 64 65 76 00 53 53 53  4e 37 50 42 58 46 47 36  .dev.SSSN7PBXFG6
+  0020  44 59 00 72 6f 6f 74 00                           DY.root.
 ```
 
 which results in a `response` value of:
 
 ``` none
-  0000  84 71 db 1f 5c 03 f7 51  fd 88 5f 7c 31 86 2d 16  |.q..\..Q.._|1.-.|
-  0010  d6 f3 a7 78 98 bd 2a dc  2c eb 29 ad 1d 6d 63 3b  |...x..*.,.)..mc;|
+  0000  84 71 db 1f 5c 03 f7 51  fd 88 5f 7c 31 86 2d 16  .q..\..Q.._|1.-.
+  0010  d6 f3 a7 78 98 bd 2a dc  2c eb 29 ad 1d 6d 63 3b  ...x..*.,.)..mc;
 ```
 
 To generate a 9-digit authentication code, the bytestring `84 71 db 1f 5c 03 f7 51` is interpreted as the number `0x51f7035c1fdb7184` (`5906193130526044548` in decimal) and the value modulo `10^9` is calculated (`526044548`) to produce the final authentication code.
